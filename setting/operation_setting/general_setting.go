@@ -1,13 +1,6 @@
 package operation_setting
 
-import (
-	"encoding/json"
-	"os"
-	"strconv"
-
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/setting/config"
-)
+import "github.com/QuantumNous/new-api/setting/config"
 
 // 额度展示类型
 const (
@@ -27,10 +20,6 @@ type GeneralSetting struct {
 	CustomCurrencySymbol string `json:"custom_currency_symbol"`
 	// 自定义货币与美元汇率（1 USD = X Custom）
 	CustomCurrencyExchangeRate float64 `json:"custom_currency_exchange_rate"`
-	// Request-level upstream override for relay requests
-	RequestUpstreamOverrideEnabled   bool              `json:"request_upstream_override_enabled"`
-	RequestUpstreamOverrideAllowlist []string          `json:"request_upstream_override_allowlist"`
-	RequestUpstreamProxyMap          map[string]string `json:"request_upstream_proxy_map"`
 }
 
 // 默认配置
@@ -41,9 +30,6 @@ var generalSetting = GeneralSetting{
 	QuotaDisplayType:           QuotaDisplayTypeUSD,
 	CustomCurrencySymbol:       "¤",
 	CustomCurrencyExchangeRate: 1.0,
-	RequestUpstreamOverrideEnabled:   true,
-	RequestUpstreamOverrideAllowlist: []string{"*"},
-	RequestUpstreamProxyMap:          map[string]string{},
 }
 
 func init() {
@@ -52,43 +38,7 @@ func init() {
 }
 
 func GetGeneralSetting() *GeneralSetting {
-	if value := os.Getenv("REQUEST_UPSTREAM_OVERRIDE_ENABLED"); value != "" {
-		enabled, err := strconv.ParseBool(value)
-		if err != nil {
-			common.SysError("failed to parse REQUEST_UPSTREAM_OVERRIDE_ENABLED: " + err.Error())
-		} else {
-			generalSetting.RequestUpstreamOverrideEnabled = enabled
-		}
-	}
-	if value := os.Getenv("REQUEST_UPSTREAM_OVERRIDE_ALLOWLIST"); value != "" {
-		var allowlist []string
-		if err := json.Unmarshal([]byte(value), &allowlist); err != nil {
-			common.SysError("failed to parse REQUEST_UPSTREAM_OVERRIDE_ALLOWLIST: " + err.Error())
-		} else {
-			generalSetting.RequestUpstreamOverrideAllowlist = allowlist
-		}
-	}
-	if value := os.Getenv("REQUEST_UPSTREAM_PROXY_MAP"); value != "" {
-		var proxyMap map[string]string
-		if err := json.Unmarshal([]byte(value), &proxyMap); err != nil {
-			common.SysError("failed to parse REQUEST_UPSTREAM_PROXY_MAP: " + err.Error())
-		} else {
-			generalSetting.RequestUpstreamProxyMap = proxyMap
-		}
-	}
 	return &generalSetting
-}
-
-func IsRequestUpstreamOverrideEnabled() bool {
-	return generalSetting.RequestUpstreamOverrideEnabled
-}
-
-func GetRequestUpstreamOverrideAllowlist() []string {
-	return generalSetting.RequestUpstreamOverrideAllowlist
-}
-
-func GetRequestUpstreamProxyMap() map[string]string {
-	return generalSetting.RequestUpstreamProxyMap
 }
 
 // IsCurrencyDisplay 是否以货币形式展示（美元或人民币）

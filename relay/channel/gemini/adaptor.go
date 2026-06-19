@@ -17,6 +17,7 @@ import (
 	"github.com/QuantumNous/new-api/types"
 
 	"github.com/gin-gonic/gin"
+	"github.com/samber/lo"
 )
 
 type Adaptor struct {
@@ -58,7 +59,7 @@ func (a *Adaptor) ConvertAudioRequest(c *gin.Context, info *relaycommon.RelayInf
 
 func (a *Adaptor) ConvertImageRequest(c *gin.Context, info *relaycommon.RelayInfo, request dto.ImageRequest) (any, error) {
 	if !strings.HasPrefix(info.UpstreamModelName, "imagen") {
-		return nil, errors.New("not supported model for image generation")
+		return nil, errors.New("not supported model for image generation, only imagen models are supported")
 	}
 
 	// convert size to aspect ratio but allow user to specify aspect ratio
@@ -91,7 +92,7 @@ func (a *Adaptor) ConvertImageRequest(c *gin.Context, info *relaycommon.RelayInf
 			},
 		},
 		Parameters: dto.GeminiImageParameters{
-			SampleCount:      int(request.N),
+			SampleCount:      int(lo.FromPtrOr(request.N, uint(1))),
 			AspectRatio:      aspectRatio,
 			PersonGeneration: "allow_adult", // default allow adult
 		},
@@ -171,9 +172,7 @@ func (a *Adaptor) GetRequestURL(info *relaycommon.RelayInfo) (string, error) {
 
 func (a *Adaptor) SetupRequestHeader(c *gin.Context, req *http.Header, info *relaycommon.RelayInfo) error {
 	channel.SetupApiRequestHeader(info, c, req)
-	if req.Get("x-goog-api-key") == "" && req.Get("Authorization") == "" {
-		req.Set("x-goog-api-key", info.ApiKey)
-	}
+	req.Set("x-goog-api-key", info.ApiKey)
 	return nil
 }
 
@@ -225,8 +224,9 @@ func (a *Adaptor) ConvertEmbeddingRequest(c *gin.Context, info *relaycommon.Rela
 		switch info.UpstreamModelName {
 		case "text-embedding-004", "gemini-embedding-exp-03-07", "gemini-embedding-001":
 			// Only newer models introduced after 2024 support OutputDimensionality
-			if request.Dimensions > 0 {
-				geminiRequest["outputDimensionality"] = request.Dimensions
+			dimensions := lo.FromPtrOr(request.Dimensions, 0)
+			if dimensions > 0 {
+				geminiRequest["outputDimensionality"] = dimensions
 			}
 		}
 		geminiRequests = append(geminiRequests, geminiRequest)

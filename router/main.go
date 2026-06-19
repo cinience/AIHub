@@ -1,18 +1,18 @@
 package router
 
 import (
-	"embed"
 	"fmt"
 	"net/http"
 	"os"
 	"strings"
 
 	"github.com/QuantumNous/new-api/common"
+	"github.com/QuantumNous/new-api/middleware"
 
 	"github.com/gin-gonic/gin"
 )
 
-func SetRouter(router *gin.Engine, buildFS embed.FS, indexPage []byte) {
+func SetRouter(router *gin.Engine, assets ThemeAssets) {
 	SetApiRouter(router)
 	SetDashboardRouter(router)
 	SetRelayRouter(router)
@@ -23,10 +23,11 @@ func SetRouter(router *gin.Engine, buildFS embed.FS, indexPage []byte) {
 		common.SysLog("FRONTEND_BASE_URL is ignored on master node")
 	}
 	if frontendBaseUrl == "" {
-		SetWebRouter(router, buildFS, indexPage)
+		SetWebRouter(router, assets)
 	} else {
 		frontendBaseUrl = strings.TrimSuffix(frontendBaseUrl, "/")
 		router.NoRoute(func(c *gin.Context) {
+			c.Set(middleware.RouteTagKey, "web")
 			c.Redirect(http.StatusMovedPermanently, fmt.Sprintf("%s%s", frontendBaseUrl, c.Request.RequestURI))
 		})
 	}
