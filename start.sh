@@ -11,6 +11,7 @@ cd "$ROOT_DIR"
 
 PORT="${PORT:-19000}"
 export PORT
+export GOWORK=off
 DAEMON=false
 
 while getopts ":d" opt; do
@@ -45,18 +46,23 @@ kill_port_process() {
 }
 
 echo "[start] building frontend..."
-#make build-frontend
+if [ ! -f "${ROOT_DIR}/web/default/dist/index.html" ] || [ ! -f "${ROOT_DIR}/web/classic/dist/index.html" ]; then
+  make build-all-frontends
+else
+  echo "[start] frontend dist already exists, skipping frontend build"
+fi
 
 echo "[start] building backend..."
-go build ./...
+mkdir -p "${ROOT_DIR}/bin"
+go build -o "${ROOT_DIR}/bin/new-api" .
 
 kill_port_process "${PORT}"
 
 echo "[start] starting backend on port ${PORT}..."
 if [ "${DAEMON}" = "true" ]; then
   mkdir -p "${ROOT_DIR}/logs"
-  nohup go run main.go --port "${PORT}" >> "${ROOT_DIR}/logs/server.log" 2>&1 &
+  nohup "${ROOT_DIR}/bin/new-api" --port "${PORT}" >> "${ROOT_DIR}/logs/server.log" 2>&1 &
   echo "[start] backend started in daemon mode (pid $!)"
 else
-  exec go run main.go --port "${PORT}"
+  exec "${ROOT_DIR}/bin/new-api" --port "${PORT}"
 fi

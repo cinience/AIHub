@@ -1,6 +1,12 @@
 package operation_setting
 
-import "github.com/QuantumNous/new-api/setting/config"
+import (
+	"os"
+	"strconv"
+
+	"github.com/QuantumNous/new-api/common"
+	"github.com/QuantumNous/new-api/setting/config"
+)
 
 // 额度展示类型
 const (
@@ -19,7 +25,10 @@ type GeneralSetting struct {
 	// 自定义货币符号，用于 CUSTOM 展示类型
 	CustomCurrencySymbol string `json:"custom_currency_symbol"`
 	// 自定义货币与美元汇率（1 USD = X Custom）
-	CustomCurrencyExchangeRate float64 `json:"custom_currency_exchange_rate"`
+	CustomCurrencyExchangeRate       float64           `json:"custom_currency_exchange_rate"`
+	RequestUpstreamOverrideEnabled   bool              `json:"request_upstream_override_enabled"`
+	RequestUpstreamOverrideAllowlist []string          `json:"request_upstream_override_allowlist"`
+	RequestUpstreamProxyMap          map[string]string `json:"request_upstream_proxy_map"`
 }
 
 // 默认配置
@@ -30,6 +39,7 @@ var generalSetting = GeneralSetting{
 	QuotaDisplayType:           QuotaDisplayTypeUSD,
 	CustomCurrencySymbol:       "¤",
 	CustomCurrencyExchangeRate: 1.0,
+	RequestUpstreamProxyMap:    map[string]string{},
 }
 
 func init() {
@@ -38,7 +48,41 @@ func init() {
 }
 
 func GetGeneralSetting() *GeneralSetting {
+	applyGeneralSettingEnvOverrides()
 	return &generalSetting
+}
+
+func IsRequestUpstreamOverrideEnabled() bool {
+	return GetGeneralSetting().RequestUpstreamOverrideEnabled
+}
+
+func GetRequestUpstreamOverrideAllowlist() []string {
+	return GetGeneralSetting().RequestUpstreamOverrideAllowlist
+}
+
+func GetRequestUpstreamProxyMap() map[string]string {
+	return GetGeneralSetting().RequestUpstreamProxyMap
+}
+
+func applyGeneralSettingEnvOverrides() {
+	if value, ok := os.LookupEnv("REQUEST_UPSTREAM_OVERRIDE_ENABLED"); ok {
+		enabled, err := strconv.ParseBool(value)
+		if err == nil {
+			generalSetting.RequestUpstreamOverrideEnabled = enabled
+		}
+	}
+	if value, ok := os.LookupEnv("REQUEST_UPSTREAM_OVERRIDE_ALLOWLIST"); ok {
+		var allowlist []string
+		if err := common.Unmarshal([]byte(value), &allowlist); err == nil {
+			generalSetting.RequestUpstreamOverrideAllowlist = allowlist
+		}
+	}
+	if value, ok := os.LookupEnv("REQUEST_UPSTREAM_PROXY_MAP"); ok {
+		var proxyMap map[string]string
+		if err := common.Unmarshal([]byte(value), &proxyMap); err == nil {
+			generalSetting.RequestUpstreamProxyMap = proxyMap
+		}
+	}
 }
 
 // IsCurrencyDisplay 是否以货币形式展示（美元或人民币）

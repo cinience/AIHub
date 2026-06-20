@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -36,7 +35,7 @@ type upstreamOverrideError struct {
 }
 
 const (
-	proxyNoOverrideValue       = "none"
+	proxyNoOverrideValue        = "none"
 	upstreamProxyCacheSizeLimit = 1024
 )
 
@@ -119,7 +118,7 @@ func parseUpstreamOverrideFromRequest(c *gin.Context) (*upstreamOverride, *upstr
 	}
 	headers := map[string]string{}
 	if headersHeader != "" {
-		if err := json.Unmarshal([]byte(headersHeader), &headers); err != nil {
+		if err := common.Unmarshal([]byte(headersHeader), &headers); err != nil {
 			return nil, &upstreamOverrideError{
 				StatusCode: http.StatusBadRequest,
 				Code:       types.ErrorCodeInvalidRequest,
