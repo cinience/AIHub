@@ -5,13 +5,13 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/constant"
-	"github.com/QuantumNous/new-api/dto"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/relay/helper"
-	"github.com/QuantumNous/new-api/service"
-	"github.com/QuantumNous/new-api/types"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/constant"
+	"github.com/godeps/newapi/dto"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/relay/helper"
+	"github.com/godeps/newapi/service"
+	"github.com/godeps/newapi/types"
 
 	"github.com/gin-gonic/gin"
 )

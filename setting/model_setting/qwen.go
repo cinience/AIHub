@@ -3,7 +3,7 @@ package model_setting
 import (
 	"strings"
 
-	"github.com/QuantumNous/new-api/setting/config"
+	"github.com/godeps/newapi/setting/config"
 )
 
 // QwenSettings defines Qwen model configuration. 注意bool要以enabled结尾才可以生效编辑

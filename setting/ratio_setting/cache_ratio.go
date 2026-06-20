@@ -1,7 +1,7 @@
 package ratio_setting
 
 import (
-	"github.com/QuantumNous/new-api/types"
+	"github.com/godeps/newapi/types"
 )
 
 var defaultCacheRatio = map[string]float64{

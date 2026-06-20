@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/constant"
-	"github.com/QuantumNous/new-api/logger"
-	"github.com/QuantumNous/new-api/model"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/setting/ratio_setting"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/constant"
+	"github.com/godeps/newapi/logger"
+	"github.com/godeps/newapi/model"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/setting/ratio_setting"
 )
 
 // LogTaskConsumption 记录任务消费日志和统计信息（仅记录，不涉及实际扣费）。

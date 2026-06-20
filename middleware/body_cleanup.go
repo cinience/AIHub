@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/service"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/service"
 )
 
 // BodyStorageCleanup 请求体存储清理中间件

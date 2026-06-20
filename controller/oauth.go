@@ -5,12 +5,12 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/i18n"
-	"github.com/QuantumNous/new-api/model"
-	"github.com/QuantumNous/new-api/oauth"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/i18n"
+	"github.com/godeps/newapi/model"
+	"github.com/godeps/newapi/oauth"
 	"gorm.io/gorm"
 )
 

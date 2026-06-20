@@ -9,13 +9,13 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/constant"
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/logger"
-	"github.com/QuantumNous/new-api/setting/operation_setting"
-	"github.com/QuantumNous/new-api/types"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/constant"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/logger"
+	"github.com/godeps/newapi/setting/operation_setting"
+	"github.com/godeps/newapi/types"
 )
 
 const (

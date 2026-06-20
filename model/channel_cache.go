@@ -9,11 +9,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/constant"
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/logger"
-	"github.com/QuantumNous/new-api/setting/ratio_setting"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/constant"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/logger"
+	"github.com/godeps/newapi/setting/ratio_setting"
 )
 
 var group2model2channels map[string]map[string][]int // enabled channel

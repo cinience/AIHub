@@ -3,9 +3,9 @@ package moonshot
 import (
 	"testing"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/dto"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/dto"
+	relaycommon "github.com/godeps/newapi/relay/common"
 	"github.com/stretchr/testify/require"
 )
 

@@ -9,13 +9,13 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/logger"
-	"github.com/QuantumNous/new-api/model"
-	"github.com/QuantumNous/new-api/service"
-	"github.com/QuantumNous/new-api/setting"
-	"github.com/QuantumNous/new-api/setting/system_setting"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/logger"
+	"github.com/godeps/newapi/model"
+	"github.com/godeps/newapi/service"
+	"github.com/godeps/newapi/setting"
+	"github.com/godeps/newapi/setting/system_setting"
 
 	"github.com/gin-gonic/gin"
 )

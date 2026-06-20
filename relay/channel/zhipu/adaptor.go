@@ -6,10 +6,10 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/relay/channel"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/types"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/relay/channel"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/types"
 	"github.com/samber/lo"
 
 	"github.com/gin-gonic/gin"

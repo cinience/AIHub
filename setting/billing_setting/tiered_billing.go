@@ -3,8 +3,8 @@ package billing_setting
 import (
 	"fmt"
 
-	"github.com/QuantumNous/new-api/pkg/billingexpr"
-	"github.com/QuantumNous/new-api/setting/config"
+	"github.com/godeps/newapi/pkg/billingexpr"
+	"github.com/godeps/newapi/setting/config"
 	"github.com/samber/lo"
 )
 

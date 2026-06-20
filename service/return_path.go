@@ -3,8 +3,8 @@ package service
 import (
 	"strings"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/setting/system_setting"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/setting/system_setting"
 )
 
 func PaymentReturnURL(suffix string) string {

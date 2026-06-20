@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/common/limiter"
-	"github.com/QuantumNous/new-api/constant"
-	"github.com/QuantumNous/new-api/setting"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/common/limiter"
+	"github.com/godeps/newapi/constant"
+	"github.com/godeps/newapi/setting"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"

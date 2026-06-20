@@ -6,7 +6,7 @@ import (
 	"math"
 	"sync"
 
-	"github.com/QuantumNous/new-api/common"
+	"github.com/godeps/newapi/common"
 )
 
 var ModelRequestRateLimitEnabled = false

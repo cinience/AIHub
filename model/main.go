@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/constant"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/constant"
 
 	"github.com/glebarez/sqlite"
 	"gorm.io/driver/mysql"

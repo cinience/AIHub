@@ -3,8 +3,8 @@ package middleware
 import (
 	"fmt"
 
-	"github.com/QuantumNous/new-api/common"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/common"
 )
 
 const RouteTagKey = "route_tag"

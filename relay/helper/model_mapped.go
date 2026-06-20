@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/relay/common"
-	relayconstant "github.com/QuantumNous/new-api/relay/constant"
-	"github.com/QuantumNous/new-api/setting/ratio_setting"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/relay/common"
+	relayconstant "github.com/godeps/newapi/relay/constant"
+	"github.com/godeps/newapi/setting/ratio_setting"
 )
 
 func ModelMappedHelper(c *gin.Context, info *common.RelayInfo, request dto.Request) error {

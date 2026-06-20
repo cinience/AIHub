@@ -1,8 +1,8 @@
 package relay
 
 import (
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/types"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/types"
 )
 
 func newAPIErrorFromParamOverride(err error) *types.NewAPIError {

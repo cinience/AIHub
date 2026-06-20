@@ -3,9 +3,9 @@ package ratio_setting
 import (
 	"strings"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/setting/operation_setting"
-	"github.com/QuantumNous/new-api/types"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/setting/operation_setting"
+	"github.com/godeps/newapi/types"
 )
 
 // from songquanpeng/one-api

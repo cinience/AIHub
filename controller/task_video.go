@@ -7,15 +7,15 @@ import (
 	"io"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/constant"
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/logger"
-	"github.com/QuantumNous/new-api/model"
-	"github.com/QuantumNous/new-api/relay"
-	"github.com/QuantumNous/new-api/relay/channel"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/setting/ratio_setting"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/constant"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/logger"
+	"github.com/godeps/newapi/model"
+	"github.com/godeps/newapi/relay"
+	"github.com/godeps/newapi/relay/channel"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/setting/ratio_setting"
 )
 
 func UpdateVideoTaskAll(ctx context.Context, platform constant.TaskPlatform, taskChannelM map[int][]string, taskM map[string]*model.Task) error {

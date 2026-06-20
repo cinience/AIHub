@@ -5,11 +5,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/QuantumNous/new-api/constant"
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/pkg/billingexpr"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/types"
+	"github.com/godeps/newapi/constant"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/pkg/billingexpr"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/types"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"

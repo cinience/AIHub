@@ -3,10 +3,10 @@ package ali
 import (
 	"strings"
 
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/logger"
-	"github.com/QuantumNous/new-api/service"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/logger"
+	"github.com/godeps/newapi/service"
 )
 
 type AliMessage struct {

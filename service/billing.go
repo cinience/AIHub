@@ -3,10 +3,10 @@ package service
 import (
 	"fmt"
 
-	"github.com/QuantumNous/new-api/logger"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/types"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/logger"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/types"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/QuantumNous/new-api/types"
+	"github.com/godeps/newapi/types"
 )
 
 type StatusCodeRange struct {

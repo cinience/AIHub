@@ -10,11 +10,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/logger"
-	"github.com/QuantumNous/new-api/model"
-	"github.com/QuantumNous/new-api/setting"
-	"github.com/QuantumNous/new-api/setting/operation_setting"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/logger"
+	"github.com/godeps/newapi/model"
+	"github.com/godeps/newapi/setting"
+	"github.com/godeps/newapi/setting/operation_setting"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stripe/stripe-go/v81"

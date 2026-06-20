@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/setting/operation_setting"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/setting/operation_setting"
 	"gorm.io/gorm"
 )
 

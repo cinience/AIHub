@@ -1,26 +1,26 @@
 package setting
 
 import (
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/constant"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/constant"
 )
 
 var (
-	WaffoEnabled           bool
-	WaffoApiKey            string
-	WaffoPrivateKey        string
-	WaffoPublicCert         string
-	WaffoSandboxPublicCert  string
-	WaffoSandboxApiKey     string
-	WaffoSandboxPrivateKey string
-	WaffoSandbox           bool
-	WaffoMerchantId        string
+	WaffoEnabled               bool
+	WaffoApiKey                string
+	WaffoPrivateKey            string
+	WaffoPublicCert            string
+	WaffoSandboxPublicCert     string
+	WaffoSandboxApiKey         string
+	WaffoSandboxPrivateKey     string
+	WaffoSandbox               bool
+	WaffoMerchantId            string
 	WaffoNotifyUrl             string
 	WaffoReturnUrl             string
 	WaffoSubscriptionReturnUrl string
-	WaffoCurrency          string
-	WaffoUnitPrice         float64 = 1.0
-	WaffoMinTopUp          int     = 1
+	WaffoCurrency              string
+	WaffoUnitPrice             float64 = 1.0
+	WaffoMinTopUp              int     = 1
 )
 
 // GetWaffoPayMethods 从 options 读取 Waffo 支付方式配置

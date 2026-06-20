@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/QuantumNous/new-api/constant"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/constant"
+	relaycommon "github.com/godeps/newapi/relay/common"
 )
 
 const maxVeoImageSize = 20 * 1024 * 1024 // 20 MB

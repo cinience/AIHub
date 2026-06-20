@@ -6,13 +6,13 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/relay/channel"
-	"github.com/QuantumNous/new-api/relay/channel/openai"
-	relaycommon "github.com/QuantumNous/new-api/relay/common"
-	"github.com/QuantumNous/new-api/relay/common_handler"
-	"github.com/QuantumNous/new-api/relay/constant"
-	"github.com/QuantumNous/new-api/types"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/relay/channel"
+	"github.com/godeps/newapi/relay/channel/openai"
+	relaycommon "github.com/godeps/newapi/relay/common"
+	"github.com/godeps/newapi/relay/common_handler"
+	"github.com/godeps/newapi/relay/constant"
+	"github.com/godeps/newapi/types"
 
 	"github.com/gin-gonic/gin"
 )

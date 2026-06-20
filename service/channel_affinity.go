@@ -9,12 +9,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/QuantumNous/new-api/common"
-	"github.com/QuantumNous/new-api/dto"
-	"github.com/QuantumNous/new-api/pkg/cachex"
-	"github.com/QuantumNous/new-api/setting/operation_setting"
-	"github.com/QuantumNous/new-api/types"
 	"github.com/gin-gonic/gin"
+	"github.com/godeps/newapi/common"
+	"github.com/godeps/newapi/dto"
+	"github.com/godeps/newapi/pkg/cachex"
+	"github.com/godeps/newapi/setting/operation_setting"
+	"github.com/godeps/newapi/types"
 	"github.com/samber/hot"
 	"github.com/tidwall/gjson"
 )
